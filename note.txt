@@ -1,0 +1,12 @@
+
+- put Ora Instant Client here => C:\oracle\instantclient_21_6\network\admin
+
+- godror + database/sql (native Go)
+
+- specific function << go test -run ^TestAnyFunc$ >>
+
+- integrate open API and swagger
+
+- IMPLEMENT os.Signal, SIGINT, SIGTERM (terkait CONTEXT propagation)
+
+- DTO (struct fields) antara layer (http, domain, repo, service) harus beda
