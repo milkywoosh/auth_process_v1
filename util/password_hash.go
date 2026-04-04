@@ -13,11 +13,19 @@ func HashPassword(password string) (string, error) {
 
 }
 
+type ErrWrongPasswordType struct{}
+
+func (e ErrWrongPasswordType) Error() string {
+	return "password tidak sesuai"
+}
+
+var ErrWrongPassword ErrWrongPasswordType
+
 func ComparePassword(hashedPassword string, inputPassword string) error {
 
 	err := bcrypt.CompareHashAndPassword([]byte(hashedPassword), []byte(inputPassword))
 	if err != nil {
-		return err
+		return ErrWrongPassword
 	}
 	return nil
 }
