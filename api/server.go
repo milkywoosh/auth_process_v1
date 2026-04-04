@@ -84,8 +84,14 @@ func (s *Server) setupRoutes() {
 		})
 	})
 
+	s.userRoutes()
 	s.stockTransferRoutes() // each of stock_transfer route
+}
 
+func (s *Server) userRoutes() {
+
+	s.route.POST("/user/registration", s.UserRegistration)
+	s.route.GET("/user/login", s.Login)
 }
 
 func (s *Server) stockTransferRoutes() {
