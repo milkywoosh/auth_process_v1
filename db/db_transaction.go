@@ -2,18 +2,17 @@ package dbora
 
 import (
 	"database/sql"
-
-	"oraluke.com/conn-ora1/domain"
 )
 
 type oraTransaction struct {
-	tx                 *sql.Tx
-	locationRepo       domain.LocationRepository // define in db layer
-	itemRepo           domain.ItemRepository     // define in db layer
-	itemDomainSrv      *domain.ItemDomainService
-	warehouseDomainSrv *domain.WarehouseDomainService
+	tx *sql.Tx
+	// locationRepo       domain.LocationRepository // define in db layer
+	// itemRepo           domain.ItemRepository     // define in db layer
+	// itemDomainSrv      *domain.ItemDomainService
+	// warehouseDomainSrv *domain.WarehouseDomainService
 }
 
+/*
 func newOraTransaction(tx *sql.Tx) *oraTransaction {
 
 	newLocationRepo := NewDBLocationRepository(tx)
@@ -54,3 +53,5 @@ func (ot *oraTransaction) Commit() error {
 func (ot *oraTransaction) Rollback() error {
 	return ot.tx.Rollback()
 }
+
+*/

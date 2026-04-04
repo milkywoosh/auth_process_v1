@@ -1,13 +1,6 @@
 package dbora
 
-import (
-	"context"
-	"log"
-	"testing"
-
-	"oraluke.com/conn-ora1/domain"
-)
-
+/*
 func TestLocationFetchById(t *testing.T) {
 
 	LocRepo := NewDBLocationRepository(SetupTestDBOra)
@@ -47,6 +40,7 @@ func TestLocationFetchByLocationCode(t *testing.T) {
 
 }
 
+
 func TestCreateNewLocation(t *testing.T) {
 
 	LocRepo := NewDBLocationRepository(SetupTestDBOra)
@@ -67,3 +61,4 @@ func TestCreateNewLocation(t *testing.T) {
 	}
 
 }
+*/

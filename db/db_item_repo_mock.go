@@ -19,6 +19,9 @@ func NewItemRepositoryMock() (*ItemRepositoryMock, error) {
 	return &ItemRepositoryMock{DB: db, Mock: mock}, nil
 }
 
+/*
 func NewItemRepository(db *sql.DB) *DBItemRepository {
 	return &DBItemRepository{Conn: db}
 }
+
+*/

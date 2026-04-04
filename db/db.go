@@ -3,12 +3,9 @@ package dbora
 import (
 	"context"
 	"database/sql"
-	"errors"
-	"fmt"
 	"log"
 
 	_ "github.com/godror/godror"
-	"oraluke.com/conn-ora1/domain"
 )
 
 type DBTX interface {
@@ -63,12 +60,15 @@ func NewOraDBInstance(db *sql.DB) *OraDBInstance {
 	}
 }
 
+/*
 func (or *OraDBInstance) beginQuery() (*oraQuery, error) {
 	if or.db == nil {
 		return nil, errors.New("DB Instance doesnt exists")
 	}
 	return newOraQuery(or.db), nil
 }
+
+
 
 // implement UnitOfWork Interface
 func (or *OraDBInstance) begin(ctx context.Context) (*oraTransaction, error) {
@@ -81,6 +81,7 @@ func (or *OraDBInstance) begin(ctx context.Context) (*oraTransaction, error) {
 	return newOraTransaction(tx), nil
 
 }
+
 
 // implement UnitOfWork Interface
 func (or *OraDBInstance) BeginStockTransfer(ctx context.Context) (domain.WarehouseSrv, error) {
@@ -100,3 +101,4 @@ func (or *OraDBInstance) StockTransferQueries(ctx context.Context) (domain.ItemT
 
 	return oraQuery.itemTransfer, nil
 }
+*/

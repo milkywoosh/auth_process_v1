@@ -89,8 +89,8 @@ func (s *Server) setupRoutes() {
 }
 
 func (s *Server) stockTransferRoutes() {
-	s.route.POST("/stock-transfer/create", s.CreateStockTransfer)
-	s.route.GET("/stock-transfer/header", s.HeaderStockTransfer)
+	s.route.POST("/stock-transfer/create", nil)
+	s.route.GET("/stock-transfer/header", nil)
 	s.route.PUT("/stock-transfer/submit", nil)
 	s.route.PUT("/stock-transfer/reject", nil)
 	s.route.PUT("/stock-transfer/approve", nil)

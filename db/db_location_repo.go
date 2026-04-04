@@ -1,21 +1,11 @@
 package dbora
 
-import (
-	"context"
-	"database/sql"
-	"errors"
-	"fmt"
-	"log"
-	"strconv"
-
-	"oraluke.com/conn-ora1/domain"
-)
-
 // CONCRETE IMPLEMENTATION for domain interface
 type DBLocationRepository struct {
 	Conn DBTX
 }
 
+/*
 func NewDBLocationRepository(db DBTX) domain.LocationRepository {
 	return &DBLocationRepository{
 		Conn: db,
@@ -27,8 +17,8 @@ func (d *DBLocationRepository) Create(ctx context.Context, newLocation domain.Ne
 	var returnedId int64
 
 	insertLocationQuery := `
-	 INSERT INTO 
-	 	LOCATIONS (LOCATION_CODE, SAFETY_STOCK, CAPACITY, DESCRIPTION , PARENT_LOCATION_ID, TYPE_LOCATION_ID , LOCATION_STATUS, CREATED_AT , UPDATED_AT, REG_LOCATION_ID , LATITUDE, LONGITUDE, EXTERNAL_CODE, CREATED_BY, UPDATED_BY) 
+	 INSERT INTO
+	 	LOCATIONS (LOCATION_CODE, SAFETY_STOCK, CAPACITY, DESCRIPTION , PARENT_LOCATION_ID, TYPE_LOCATION_ID , LOCATION_STATUS, CREATED_AT , UPDATED_AT, REG_LOCATION_ID , LATITUDE, LONGITUDE, EXTERNAL_CODE, CREATED_BY, UPDATED_BY)
 		VALUES   (:LOCATION_CODE, NULL        , NULL    , :DESCRIPTION, NULL              , :TYPE_LOCATION_ID, 'available'	  , CURRENT_TIMESTAMP, NULL      , :REG_LOCATION_ID, NULL    , NULL     , NULL         , NULL      , NULL)
 		RETURNING ID INTO :RETURN_ID
 	`
@@ -54,15 +44,15 @@ func (d *DBLocationRepository) Create(ctx context.Context, newLocation domain.Ne
 func (d *DBLocationRepository) FetchById(ctx context.Context, id string) (domain.LocationInfo, error) {
 	var LocInfo domain.LocationInfo
 
-	querySql := `SELECT 
-			L.ID, 
-			L.LOCATION_CODE, 
-			L.DESCRIPTION, 
-			L.TYPE_LOCATION_ID, 
+	querySql := `SELECT
+			L.ID,
+			L.LOCATION_CODE,
+			L.DESCRIPTION,
+			L.TYPE_LOCATION_ID,
 			L.REG_LOCATION_ID
-		FROM LOCATIONS L 
+		FROM LOCATIONS L
 			WHERE L.ID = :1
-	
+
 	`
 	err := d.Conn.QueryRowContext(ctx, querySql, id).
 		Scan(
@@ -84,15 +74,15 @@ func (d *DBLocationRepository) FetchById(ctx context.Context, id string) (domain
 func (d *DBLocationRepository) FetchByLocationCode(ctx context.Context, locationCode string) (domain.LocationInfo, error) {
 	var LocInfo domain.LocationInfo
 
-	querySql := `SELECT 
-			L.ID, 
-			L.LOCATION_CODE, 
-			L.DESCRIPTION, 
-			L.TYPE_LOCATION_ID, 
+	querySql := `SELECT
+			L.ID,
+			L.LOCATION_CODE,
+			L.DESCRIPTION,
+			L.TYPE_LOCATION_ID,
 			L.REG_LOCATION_ID
-		FROM LOCATIONS L 
+		FROM LOCATIONS L
 			WHERE L.LOCATION_CODE = :LOCATION_CODE
-	
+
 	`
 	err := d.Conn.QueryRowContext(ctx, querySql, sql.Named("LOCATION_CODE", locationCode)).
 		Scan(
@@ -111,3 +101,5 @@ func (d *DBLocationRepository) FetchByLocationCode(ctx context.Context, location
 		return LocInfo, nil
 	}
 }
+
+*/
