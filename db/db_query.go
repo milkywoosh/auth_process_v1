@@ -2,10 +2,13 @@ package dbora
 
 import (
 	"database/sql"
+
+	"oraluke.com/conn-ora1/domain"
 )
 
 type oraQuery struct {
-	db *sql.DB
+	db      *sql.DB
+	authSrv domain.Authentication
 	/*
 		locationRepo       domain.LocationRepository // define in db layer
 		itemRepo           domain.ItemRepository     // define in db layer
@@ -13,6 +16,14 @@ type oraQuery struct {
 		itemTransfer       domain.ItemTransfer
 		warehouseDomainSrv *domain.WarehouseDomainService
 	*/
+}
+
+func newOraQuery(db *sql.DB) *oraQuery {
+	newAuth := NewUserRepository(db)
+
+	return &oraQuery{
+		authSrv: newAuth,
+	}
 }
 
 /*
@@ -35,6 +46,10 @@ func newOraQuery(db *sql.DB) *oraQuery {
 }
 
 */
+
+func (ot *oraQuery) AuthRepo() domain.Authentication {
+	return ot.authSrv
+}
 
 /*
 func (ot *oraQuery) LocationRepo() domain.LocationRepository {
